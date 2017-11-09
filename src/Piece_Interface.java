@@ -1,4 +1,3 @@
-
 public interface Piece_Interface {
 	
 	void setName(String name);
