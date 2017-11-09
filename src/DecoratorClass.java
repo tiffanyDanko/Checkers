@@ -1,4 +1,3 @@
-
 public class DecoratorClass implements Piece_Interface {
 	
 	protected Piece_Interface piece;
