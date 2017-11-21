@@ -1,0 +1,11 @@
+//A suggestion for piece.move[1,1]
+//It will require a hasPiece(location_X, location_Y) method
+
+if (checkboard.hasPiece(1,1) == true){
+  if (checkerboard.hasPiece(2,2) == false){
+    piece.move(2,2)
+    piece.remove(1,1)
+  } else {
+    piece.move(1.1)
+  }
+}
