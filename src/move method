@@ -2,16 +2,16 @@
 //The x and y coordinates are out of order, because setUpBoard() got them backwards.
 //I figured it was simpler to just switch them here.
 public CheckerBoard move(int y1, int x1, int y2, int x2) {
-			Piece piece1 = new Piece();
-			
-			piece1.setValue(Piece.EMPTY);
-			gameBoard[x1][y1] = piece1;
-			
-			Piece piece2 = new Piece();
-			
-			piece2.setValue(Checker.PIECE_BLACK);
-			gameBoard[x2][y2] = piece2;
-			
-			
-			return this;
-		}
+	Piece piece1 = new Piece();
+	
+	piece1.setValue(Piece.EMPTY);
+	gameBoard[x1][y1] = piece1;
+	
+	Piece piece2 = new Piece();
+	
+	piece2.setValue(Checker.PIECE_BLACK);
+	gameBoard[x2][y2] = piece2;
+	
+	
+	return this;
+}
