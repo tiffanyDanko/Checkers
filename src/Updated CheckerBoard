@@ -1,0 +1,106 @@
+
+public class CheckerBoard{
+	
+	// A static instance is created for strings that are used multiple
+		private static final String BOARD_LABEL = ("    0     1     2     3     4     5     6     7 ");
+		
+		// An object array to hold the game pieces
+		private Object[][] gameBoard = new Object[8][8];
+		
+		// Empty constructor 
+		public CheckerBoard() {
+		}
+		
+		/**
+		 * Method to initialize the game board with the object array 
+		 * filled with player pieces and has the red squares colored.
+		 */
+		public CheckerBoard setUpBoard() {
+			for ( int i = 0; i < 8; i++ ) { // row
+	        	
+		    		for(int j = 0; j < 8; j++ ) { // column
+		    			Piece piece = new Piece(); 
+		    			piece.setCol(j);
+		    			piece.setRow(i);
+		    			
+		    			if ( i % 2 == 0 ) { // even
+		    				
+		        			if ( j % 2 != 0 ) { // even
+		        				
+		        				if ( i <= 2 ) {
+		        					piece.setValue(Checker.PIECE_RED);
+		        					gameBoard[i][j] = piece; //new piece
+		        				} else if ( i >= 5 ) {
+		        					piece.setValue(Checker.PIECE_BLACK);
+		        					gameBoard[i][j] = piece;//new piece
+		        				} else {
+		        					piece.setValue(Piece.EMPTY);
+		        					gameBoard[i][j] = piece;
+		        				}
+		        				
+		        			} else { // odd
+		        				piece.setValue(Piece.EMPTY_RED);
+		        				gameBoard[i][j] = piece; 
+		        			}
+		    			} else { // odd
+		    				if ( j % 2 == 0 ) { // odd
+		    					if ( i <= 2 ) {
+		    						piece.setValue(Checker.PIECE_RED);
+		        					gameBoard[i][j] = piece; //new piece
+		        				} else if ( i >= 5 ) {
+		        					piece.setValue(Checker.PIECE_BLACK);
+		        					gameBoard[i][j] = piece; //new piece
+		        				} else {
+		        					piece.setValue(Piece.EMPTY);
+		        					gameBoard[i][j] = piece; 
+		        				}
+		        			} else { // even
+		        				piece.setValue(Piece.EMPTY_RED);
+		        				gameBoard[i][j] = piece; 
+		        			}
+		    			}
+		    			
+		    		}
+		    }
+			return this;
+		}
+		
+		public CheckerBoard move(int y1, int x1, int y2, int x2) {
+			Piece piece1 = new Piece();
+			
+			piece1.setValue(Piece.EMPTY);
+			gameBoard[x1][y1] = piece1;
+			
+			Piece piece2 = new Piece();
+			
+			piece2.setValue(Checker.PIECE_BLACK);
+			gameBoard[x2][y2] = piece2;
+			
+			
+			return this;
+		}
+		
+		@Override
+		public String toString() {
+			if ( null != gameBoard[0][0] ) { // make sure our array is initialized and is populated
+				StringBuffer sb = new StringBuffer();
+				sb.append(BOARD_LABEL + "\n\n");
+				for ( int i = 0; i < 8; i++ ) {
+		        		sb.append(i + " ");
+			    		for(int j = 0; j < 8; j++ ) {
+			    			Piece sq = (Piece) gameBoard[i][j];
+			    			sb.append(sq.getValue() + " ");
+			    		}
+			    		sb.append(i + "\n\n");
+			    }
+				sb.append(BOARD_LABEL);
+				return sb.toString();
+			} else { // game board not populated
+				return "No game board initialized yet.";
+			}
+		}
+		
+		
+		
+		
+	}
