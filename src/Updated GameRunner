@@ -1,0 +1,14 @@
+public class GameRunner {
+	
+public static void main(String[] args) {
+		
+	
+		CheckerBoard gameBoard = new CheckerBoard();
+		
+		// Create a board object that is initialized with player pieces 
+		
+		System.out.println(gameBoard.setUpBoard());
+		System.out.println();
+		System.out.println(gameBoard.move(0, 5, 1, 4));
+	}
+}
